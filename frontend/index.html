@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Farmácia | Sistema de Estoque</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <h2>✚ FarmaSys</h2>
+    <p class="menu-label">MENU PRINCIPAL</p>
+    <nav>
+      <a href="#" class="active">▦ Dashboard</a>
+      <a href="#medicamentos">💊 Medicamentos</a>
+    </nav>
+    <p class="sidebar-footer">Sistema de Farmácia</p>
+  </aside>
+
+  <main class="main-content">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">GESTÃO DE ESTOQUE</p>
+        <h1>Dashboard</h1>
+        <p class="subtitle">Bem-vinda ao seu sistema de farmácia!</p>
+      </div>
+      <span class="user-avatar">L</span>
+    </header>
+
+    <section class="stats">
+      <article class="stat-card">
+        <span class="stat-icon">💊</span>
+        <p>Total de medicamentos</p>
+        <h2 id="total-medicamentos">0</h2>
+      </article>
+
+      <article class="stat-card">
+        <span class="stat-icon">📦</span>
+        <p>Unidades em estoque</p>
+        <h2 id="total-unidades">0</h2>
+      </article>
+
+      <article class="stat-card">
+        <span class="stat-icon">💰</span>
+        <p>Valor do estoque</p>
+        <h2 id="valor-estoque">R$ 0,00</h2>
+      </article>
+    </section>
+
+    <section class="panel" id="medicamentos">
+      <div class="section-heading">
+        <div>
+          <h2>Medicamentos</h2>
+          <p>Cadastre e acompanhe os produtos da farmácia.</p>
+        </div>
+        <button id="btn-novo">+ Novo medicamento</button>
+      </div>
+
+      <form id="form-medicamento" class="form-medicamento" hidden>
+        <h3 id="titulo-formulario">Cadastrar medicamento</h3>
+        <input type="hidden" id="medicamento-id">
+
+        <div class="form-grid">
+          <label>
+            Nome do medicamento
+            <input id="nome" type="text" required maxlength="150"
+              placeholder="Ex.: Paracetamol">
+          </label>
+
+          <label>
+            Princípio ativo
+            <input id="principioAtivo" type="text" required maxlength="150"
+              placeholder="Ex.: Paracetamol">
+          </label>
+
+          <label>
+            Quantidade em estoque
+            <input id="quantidade" type="number" required min="0"
+              placeholder="Ex.: 20">
+          </label>
+
+          <label>
+            Preço (R$)
+            <input id="preco" type="number" required min="0" step="0.01"
+              placeholder="Ex.: 12,50">
+          </label>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" id="btn-cancelar" class="btn-secondary">
+            Cancelar
+          </button>
+          <button type="submit" id="btn-salvar">Salvar medicamento</button>
+        </div>
+      </form>
+
+      <div id="mensagem" role="status" hidden></div>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Medicamento</th>
+              <th>Princípio ativo</th>
+              <th>Quantidade</th>
+              <th>Preço</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody id="lista-medicamentos">
+            <tr>
+              <td colspan="5" class="empty-state">
+                Carregando medicamentos...
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer>FarmaSys © 2026 · Sistema de Gestão de Farmácia</footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
